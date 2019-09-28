@@ -5,12 +5,11 @@ import ContactData from "./ContactData/ContactData";
 class Checkout extends Component {
   constructor(props) {
     super(props);
-  
 
     const query = new URLSearchParams(this.props.location.search);
     const ingredients = {};
     let price = 0;
-
+    // eslint-disable-next-line
     for (let param of query.entries()) {
       if (param[0] === "price") {
         price = param[1];
@@ -18,9 +17,8 @@ class Checkout extends Component {
         ingredients[param[0]] = +param[1];
       }
     }
-    this.state={ ingredients: ingredients, totalPrice: price };
+    this.state = { ingredients: ingredients, totalPrice: price };
   }
-
 
   checkoutCancelledHandler = () => {
     this.props.history.goBack();
